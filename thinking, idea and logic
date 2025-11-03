@@ -2,4 +2,16 @@ with use of basic knowledge i figured the orientation of mosfet(they are most co
 
 motion of motor.
 for forward motion(which i represented)
-two diagonal side mosfet should be used.(always use diagonals otherwise it will become a shortcircuit). the magnetic field in the motor winding interacts with the stator magnet generating a torque in the forward direction. for backward direction use the other two mosfets. pwm creates a average current in the motor. more the duty cycle more will be the avg current hence more will be the torque and faster rotation and vice versa.
+two diagonal side mosfet should be used.(always use diagonals otherwise it will become a shortcircuit). the magnetic field in the motor winding interacts with the stator magnet generating a torque in the forward direction. for backward direction use the other two mosfets. pwm creates a average current in the motor. more the duty cycle more will be the avg current hence more will be the torque(proportional to armature/motor current) and faster rotation and vice versa. my day 3 output was current in the motor which should be a square pwm wave.
+current path= vsupply-q1-motor-q4-shunt-ground
+
+use of shunt. 
+i used it for torque feedback. same current flows thorugh the motor and shunt,which is very low value meaning with veyr little potential drop i will know the torque being produced by the motor.
+
+use of opamp(gain of 10)
+the voltage across the shunt is fed into the opamp to amplify the very tiny voltage drop across it into a measureable value
+
+use of rc filter.
+the amplified voltage is passed through a the filter to produce a smooth dc signal which will be fed into the microcontroller. now micrcontroller will check wheather the current(torque) is enough or not and adjust the pwm duty cycle and therewith adjusting the joint angle.
+
+the outputs of day4 are self explanatory 
