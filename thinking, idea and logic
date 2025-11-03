@@ -1,0 +1,5 @@
+with use of basic knowledge i figured the orientation of mosfet(they are most common switching elements). further using chatgpt and some research papers available like https://www.semanticscholar.org/paper/Working-and-analysis-of-the-H-bridge-motor-driver-Gupta/f59542f3fd73cac5f7274bc2b4ada32db4514604 i made my inital circuit diagram(just h bridge without any current sensing or torque feedback). 
+
+motion of motor.
+for forward motion(which i represented)
+two diagonal side mosfet should be used.(always use diagonals otherwise it will become a shortcircuit). the magnetic field in the motor winding interacts with the stator magnet generating a torque in the forward direction. for backward direction use the other two mosfets. pwm creates a average current in the motor. more the duty cycle more will be the avg current hence more will be the torque and faster rotation and vice versa.
